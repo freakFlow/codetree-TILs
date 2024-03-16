@@ -41,7 +41,7 @@ public class Main {
             case "D": return 0;
             case "R": return 1;
             case "L": return 2;
-            case "U": return 4;
+            case "U": return 3;
             default: return 0;
         }
     }
