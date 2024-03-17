@@ -34,9 +34,9 @@ public class Main {
             c = N - 1;
         }else if(d == 2){
             r = N - 1;
-            c = K % N;
+            c = N - 1 - K % N;
         }else{
-            r = K % N;
+            r = N - 1 - K % N;
             c = 0;
         }
 
