@@ -39,6 +39,7 @@ public class Main {
     static boolean isHappyRow(int row){
         int before = arr[row][0];
         int cnt = 1;
+        if(cnt == M) return true;
         for(int c=1; c<N; c++){
             if(arr[row][c] == before){
                 cnt++;
@@ -54,6 +55,7 @@ public class Main {
     static boolean isHappyCol(int col){
         int before = arr[0][col];
         int cnt = 1;
+        if(cnt == M) return true;
         for(int r=1; r<N; r++){
             if(arr[r][col] == before){
                 cnt++;
