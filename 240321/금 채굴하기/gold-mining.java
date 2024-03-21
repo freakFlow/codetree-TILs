@@ -30,9 +30,8 @@ public class Main {
             int cost = k * k + (k + 1) * (k + 1);
             for(int r=0; r<N; r++){
                 for(int c=0; c<N; c++){
-                    visited = new boolean[N][N];
                     int coin = mining(r, c, k);
-                    if(coin * M >= cost) ans = Math.max(ans, coin);
+                    if(coin * M >= cost && coin > ans) ans = coin;
                 }
             }
         }
@@ -42,24 +41,19 @@ public class Main {
         System.out.print(sb);
     }
 
-    static int mining(int row, int col, int k){
-        int coin = arr[row][col];
-        visited[row][col] = true;
-
-        if(k == 0) return coin;
-
-        for(int d=0; d<dr.length; d++){
-            int nr = row + dr[d];
-            int nc = col + dc[d];
-            if(!isIn(nr, nc) || visited[nr][nc]) continue;
-
-            coin += mining(nr, nc, k-1);
+    static int mining(int mr, int mc, int k){
+        int coin = 0;
+        for(int r=0; r<N; r++){
+            for(int c=0; c<N; c++){
+                if(distance(r, c, mr, mc) > k) continue;
+                coin += arr[r][c];
+            }
         }
 
         return coin;
     }
 
-    static boolean isIn(int r, int c){
-        return r>=0 && r<N && c>=0 && c<N;
+    static int distance(int r1, int c1, int r2, int c2){
+        return Math.abs(r1 - r2) + Math.abs(c1 - c2);
     }
 }
