@@ -26,7 +26,7 @@ public class Main {
             }
         }
 
-        for(int k=0; k<N; k++){
+        for(int k=0; k<=N; k++){
             int cost = k * k + (k + 1) * (k + 1);
             for(int r=0; r<N; r++){
                 for(int c=0; c<N; c++){
