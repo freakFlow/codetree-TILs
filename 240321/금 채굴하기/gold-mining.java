@@ -32,7 +32,7 @@ public class Main {
                 for(int c=0; c<N; c++){
                     visited = new boolean[N][N];
                     int coin = mining(r, c, k);
-                    if(coin * M >= cost) ans = coin;
+                    if(coin * M >= cost) ans = Math.max(ans, coin);
                 }
             }
         }
