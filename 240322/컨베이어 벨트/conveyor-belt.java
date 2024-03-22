@@ -21,7 +21,7 @@ public class Main {
             arr[n] = Integer.parseInt(st.nextToken());
         }
 
-        T %= N;
+        T %= 2 * N;
         for(int t=0; t<T; t++){
             int temp = arr[2*N-1];
             for(int n=2*N-1; n>0; n--){
