@@ -34,7 +34,7 @@ public class Main {
                 if(d.equals("L")) flag = 1;
                 else flag = 0;
             }
-            if(flag == 0) leftWind(r);
+            if(d.equals("L")) leftWind(r);
             else rightWind(r);
 
             int upRow = r - 1;
