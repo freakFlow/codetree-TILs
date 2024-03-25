@@ -24,6 +24,8 @@ public class Main {
         }
 
         while(true){
+            boolean flag = false;
+
             int num = arr[0];
             int start = 0;
             int end = 0;
@@ -31,17 +33,21 @@ public class Main {
                 if(arr[n] == num){
                     end++;
                 }else{
-                    if(end - start + 1 >= M) break;
+                    if(end - start + 1 >= M) {
+                        bomb(start, end);
+                        flag = true;
+                    }
                     num = arr[n];
                     start = end = n;
                 }
             }
 
-            if(end - start + 1 < M) break;
-
-            for(int n=start; n<=end; n++){
-                arr[n] = -1;
+            if(end - start + 1 >= M){
+                bomb(start, end);
+                flag = true;
             }
+
+            if(!flag) break;
 
             int tIdx = 0;
             for(int n=0; n<endIdx; n++){
@@ -61,5 +67,11 @@ public class Main {
         }
 
         System.out.print(sb);
+    }
+
+    static void bomb(int start, int end){
+        for(int i=start; i<=end; i++){
+            arr[i] = -1;
+        }
     }
 }
