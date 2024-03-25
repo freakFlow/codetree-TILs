@@ -29,11 +29,13 @@ public class Main {
             int num = arr[0];
             int start = 0;
             int end = 0;
+            int len = 0;
             for(int n=1; n<endIdx; n++){
                 if(arr[n] == num){
                     end++;
                 }else{
-                    if(end - start + 1 >= M) {
+                    len = end - start + 1;
+                    if(len >= M) {
                         bomb(start, end);
                         flag = true;
                     }
@@ -42,12 +44,13 @@ public class Main {
                 }
             }
 
-            if(end - start + 1 >= M){
+            len = end - start + 1;
+            if(len >= M){
                 bomb(start, end);
                 flag = true;
             }
 
-            if(!flag) break;
+            if(!flag || endIdx == 0) break;
 
             int tIdx = 0;
             for(int n=0; n<endIdx; n++){
