@@ -38,11 +38,11 @@ public class Main {
             ans = 1;
             return;
         }
-        
+
         for(int d=0; d<dr.length; d++){
             int nr = r + dr[d];
             int nc = c + dc[d];
-            if(isIn(nr, nc) && visited[nr][nc]){
+            if(isIn(nr, nc) && !visited[nr][nc]){
                 visited[nr][nc] = true;
                 dfs(nr, nc);
             }
