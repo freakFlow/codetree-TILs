@@ -18,6 +18,7 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         town = new int[N][M];
+        K = 1;
 
         for(int n=0; n<N; n++){
             st = new StringTokenizer(br.readLine());
