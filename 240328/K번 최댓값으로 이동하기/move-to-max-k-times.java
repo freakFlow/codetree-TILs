@@ -82,6 +82,7 @@ public class Main {
             }
         }
 
+        if(tr * tc * tw == 0) return;
         sr = tr;
         sc = tc;
         sw = tw;
