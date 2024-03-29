@@ -142,7 +142,7 @@ public class Main {
             int idx = size-1;
             for(int r=size-1; r>=0; r--){
                 if(arr[r][c] == 0) continue;
-                temp[idx++] = arr[r][c];
+                temp[idx--] = arr[r][c];
             }
             for(int r=size-1; r>=0; r--){
                 arr[r][c] = temp[r];
@@ -159,7 +159,7 @@ public class Main {
             idx = size-1;
             for(int r=size-1; r>=0; r--){
                 if(arr[r][c] == 0) continue;
-                temp[idx++] = arr[r][c];
+                temp[idx--] = arr[r][c];
             }
             for(int r=size-1; r>=0; r--){
                 arr[r][c] = temp[r];
