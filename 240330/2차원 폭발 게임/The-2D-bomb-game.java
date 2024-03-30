@@ -26,8 +26,9 @@ public class Main {
         }
 
         for(int k=0; k<K; k++){
-            bomb();
-            drop();
+            while(bomb()){
+                drop();
+            }
             rotate();
             drop();
         }
@@ -45,7 +46,9 @@ public class Main {
         System.out.print(sb);
     }
 
-    static void bomb(){
+    static boolean bomb(){
+        boolean keepGoing = false;
+
         for(int c=0; c<N; c++){
             int sr = 0;
             int er = 0;
@@ -53,21 +56,25 @@ public class Main {
             for(; er<N; er++){
                 if(arr[er][c] == arr[sr][c]) continue;
 
-                if(er - sr >= M){
+                if(arr[sr][c] > 0 && er - sr >= M){
                     for(int r=sr; r<er; r++){
                         arr[r][c] = 0;
+                        keepGoing = true;
                     }
                 }
 
                 sr = er;
             }
 
-            if(er - sr >= M){
+            if(arr[sr][c] > 0 && er - sr >= M){
                 for(int r=sr; r<er; r++){
                     arr[r][c] = 0;
+                    keepGoing = true;
                 }
             }
         }
+
+        return keepGoing;
     }
 
     static void drop(){
