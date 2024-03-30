@@ -33,7 +33,9 @@ public class Main {
             drop();
         }
 
-        bomb();
+        while(bomb()){
+            drop();
+        }
 
         for(int r=0; r<N; r++){
             for(int c=0; c<N; c++){
