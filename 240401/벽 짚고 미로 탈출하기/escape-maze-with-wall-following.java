@@ -30,9 +30,10 @@ public class Main {
 
         int r = sr;
         int c = sc;
+        int d = sd;
         while(true){
-            int nr = r + dr[sd];
-            int nc = c + dc[sd];
+            int nr = r + dr[d];
+            int nc = c + dc[d];
             time++;
 
             if(!isIn(nr, nc)) break;
@@ -43,7 +44,7 @@ public class Main {
                     time = -1;
                     break;
                 }else{
-                    sd = (sd - 1 + 4) % 4;
+                    d = (d - 1 + 4) % 4;
                     continue;
                 }
             }
@@ -51,15 +52,15 @@ public class Main {
             r = nr;
             c = nc;
 
-            if(r == sr && c == sc){
+            if(r == sr && c == sc && d == sd){
                 time = -1;
                 break;
             }
 
-            int nd = (sd + 1) % 4;
+            int nd = (d + 1) % 4;
             nr = r + dr[nd];
             nc = c + dc[nd];
-            if(!isIn(nr, nc) || maze[nr][nc] != WALL) sd = (sd + 1) % 4;
+            if(!isIn(nr, nc) || maze[nr][nc] != WALL) d = (d + 1) % 4;
         }
 
         sb.append(time);
