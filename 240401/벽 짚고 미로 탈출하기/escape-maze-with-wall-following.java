@@ -34,33 +34,32 @@ public class Main {
         while(true){
             int nr = r + dr[d];
             int nc = c + dc[d];
-            time++;
 
-            if(!isIn(nr, nc)) break;
-
-            if(maze[nr][nc] == WALL){
-                time--;
-                if(hasLoop(r, c)){
-                    time = -1;
-                    break;
-                }else{
-                    d = (d - 1 + 4) % 4;
-                    continue;
-                }
+            // 미로 탈출
+            if(!isIn(nr, nc)){
+                time++;
+                break;
             }
 
-            r = nr;
-            c = nc;
+            
+            if(maze[nr][nc] == WALL){// 다음 이동할 곳이 벽인 경우
+                d = (d - 1 + 4) % 4;
+            }else{// 다음 이동할 곳이 비어있는 경우
+                r = nr;
+                c = nc;
+                time++;
+                
+                // 오른쪽 벽 체크해서 비어있으면 시계방향 회전
+                nr = r + dr[(d + 1) % 4];
+                nc = c + dc[(d + 1) % 4];
+                if(!isIn(nr, nc) || maze[nr][nc] != WALL) d = (d + 1) % 4;
+            }
 
+            // 최종적으로 움직인 위치가 시작 위치와 같을 경우 탈출 불가
             if(r == sr && c == sc && d == sd){
                 time = -1;
                 break;
             }
-
-            int nd = (d + 1) % 4;
-            nr = r + dr[nd];
-            nc = c + dc[nd];
-            if(!isIn(nr, nc) || maze[nr][nc] != WALL) d = (d + 1) % 4;
         }
 
         sb.append(time);
@@ -70,16 +69,5 @@ public class Main {
 
     static boolean isIn(int r, int c){
         return r>=0 && r<N && c>=0 && c<N;
-    }
-
-    static boolean hasLoop(int r, int c){
-        for(int d=0; d<dr.length; d++){
-            int nr = r + dr[d];
-            int nc = c + dc[d];
-
-            if(!isIn(nr, nc) || maze[nr][nc] != WALL) return false;
-        }
-
-        return true;
     }
 }
