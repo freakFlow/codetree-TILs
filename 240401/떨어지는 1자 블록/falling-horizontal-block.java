@@ -41,6 +41,7 @@ public class Main {
     }
 
     static boolean drop(){
+        if(row + 1 >= N) return false;
         for(int m=0; m<M; m++){
             if(arr[row+1][K+m] == 1) return false;
         }
