@@ -43,9 +43,9 @@ public class Main {
                 for(int c=0; c<N; c++){
                     if(marble[r][c] == 0) continue;
 
-                    int mr = r;
-                    int mc = c;
-                    int max = arr[r][c];
+                    int mr = 0;
+                    int mc = 0;
+                    int max = 0;
 
                     for(int d=0; d<dr.length; d++){
                         int nr = r + dr[d];
@@ -57,7 +57,6 @@ public class Main {
                             mc = nc;
                         }
                     }
-
                     temp[mr][mc]++;
                 }
             }
