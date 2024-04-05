@@ -19,12 +19,17 @@ public class Main {
 
     public static void main(String[] args) throws IOException{
         T = Integer.parseInt(br.readLine());
+        arr = new int[SIZE][SIZE];
 
         for(int t=0; t<T; t++){
             N = Integer.parseInt(br.readLine());
             marble = new Marble[N+1];
             isDead = new boolean[N+1];
-            arr = new int[SIZE][SIZE];
+            for(int r=0; r<SIZE; r++){
+                for(int c=0; c<SIZE; c++){
+                    arr[r][c] = 0;
+                }
+            }
             lastTime = -1;
 
             for(int n=1; n<=N; n++){
@@ -55,7 +60,7 @@ public class Main {
                     
                     // 이미 격자에 다른 구슬이 있으면 비교
                     int idx = arr[nr][nc];
-                    if(idx > 0 && idx < n){
+                    if(idx > 0 && idx < n && !isDead[idx] && marble[idx].r == nr && marble[idx].c == nc){
                         lastTime = time;
 
                         if(marble[n].w >= marble[idx].w){
