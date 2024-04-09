@@ -13,7 +13,7 @@ public class Main {
     static int[][] arr;
     static int maxHeight;
     static boolean[][] visited;
-    static int K, safe;
+    static int K = 1, safe;
 
     public static void main(String[] args) throws IOException{
         st = new StringTokenizer(br.readLine());
