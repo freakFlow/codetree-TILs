@@ -32,7 +32,7 @@ public class Main {
             }
         }
 
-        for(K=0; K<N; K++){
+        for(K=0; K<=N; K++){
             cost = K * K + (K + 1) * (K + 1);
             for(int r=0; r<N; r++){
                 for(int c=0; c<N; c++){
