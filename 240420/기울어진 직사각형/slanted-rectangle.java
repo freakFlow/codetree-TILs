@@ -32,7 +32,7 @@ public class Main {
                 sr = r + 1;
                 sc = c - 1;
                 if(!isIn(sr, sc)) continue;
-                q.add(new Info(r, c, 0, arr[sr][sc]));
+                q.add(new Info(r, c, 0, arr[r][c]));
                 bfs();
             }
         }
