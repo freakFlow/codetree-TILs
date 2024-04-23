@@ -62,7 +62,7 @@ public class Main {
     }
 
     static boolean overlapped(){
-        boolean[][] overlap = new boolean[N][N];
+        boolean[][] overlap = new boolean[N][M];
         for(int r=s1.r; r<=e1.r; r++){
             for(int c=s1.c; c<=e1.c; c++){
                 overlap[r][c] = true;
