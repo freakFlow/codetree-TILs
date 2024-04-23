@@ -46,7 +46,7 @@ public class Main {
     }
 
     static void makeRectangel2(){
-        for(int r1=s1.r; r1<N; r1++){
+        for(int r1=0; r1<N; r1++){
             for(int c1=0; c1<M; c1++){
                 s2 = new Info(r1, c1);
                 for(int r2=r1; r2<N; r2++){
@@ -62,7 +62,20 @@ public class Main {
     }
 
     static boolean overlapped(){
-        return s1.r<=s2.r && s2.r<=e1.r && s1.c<=s2.c && s2.c<=e1.c;
+        boolean[][] overlap = new boolean[N][N];
+        for(int r=s1.r; r<=e1.r; r++){
+            for(int c=s1.c; c<=e1.c; c++){
+                overlap[r][c] = true;
+            }
+        }
+
+        for(int r=s2.r; r<=e2.r; r++){
+            for(int c=s2.c; c<=e2.c; c++){
+                if(overlap[r][c]) return true;
+            }
+        }
+
+        return false;
     }
 
     static int getSum(){
