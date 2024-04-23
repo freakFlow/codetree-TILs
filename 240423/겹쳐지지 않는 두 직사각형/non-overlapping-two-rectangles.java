@@ -47,7 +47,7 @@ public class Main {
 
     static void makeRectangel2(){
         for(int r1=s1.r; r1<N; r1++){
-            for(int c1=s1.c; c1<M; c1++){
+            for(int c1=0; c1<M; c1++){
                 s2 = new Info(r1, c1);
                 for(int r2=r1; r2<N; r2++){
                     for(int c2=c1; c2<M; c2++){
