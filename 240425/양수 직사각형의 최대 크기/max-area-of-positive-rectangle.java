@@ -43,7 +43,7 @@ public class Main {
 
     static void getEndInfo(){
         for(int r=0; r<N; r++){
-            for(int c=0; c<N; c++){
+            for(int c=0; c<M; c++){
                 if(arr[r][c] <= 0) continue;
                 end = new Info(r, c);
                 if(isNotEnd()) continue;
