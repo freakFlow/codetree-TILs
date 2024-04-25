@@ -48,7 +48,7 @@ public class Main {
                 end = new Info(r, c);
                 if(isNotEnd()) continue;
 
-                checkSide();
+                check();
             }
         }
     }
@@ -57,14 +57,12 @@ public class Main {
         return end.r<start.r || (end.r==start.r && end.c<start.c);
     }
 
-    static void checkSide(){
+    static void check(){
         boolean isAllPositive = true;
 
         for(int r=start.r; r<=end.r; r++){
             for(int c=start.c; c<=end.c; c++){
-                if(r==start.r || r==end.r || c==start.c || c==end.c){
-                    if(arr[r][c] <= 0) isAllPositive = false;
-                }
+                if(arr[r][c] <= 0) isAllPositive = false;
             }
         }
 
