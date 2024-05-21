@@ -61,6 +61,8 @@ public class Main {
             }
 
             size = tIdx;
+
+            if(size == 0) break;
         }
 
         sb.append(size).append('\n');
