@@ -28,21 +28,21 @@ public class Main {
         }
 
         for(int c=0; c<N; c++){
-            int h = 0;
             for(int r=0; r<N; r++){
                 if(arr[r][c] == BLANK) continue;
-                h++;
+                
+                height[c] = r;
+                break;
             }
-            height[c] = h;
         }
 
-        int maxHeight = 0;
+        int row = N - 1;
         for(int c=K; c<K+M; c++){
-            maxHeight = Math.max(maxHeight, height[c]);
+            row = Math.min(row, height[c]);
         }
 
         for(int c=K; c<K+M; c++){
-            arr[N - 1 - maxHeight][c] = 1;
+            arr[row - 1][c] = 1;
         }
 
         for(int r=0; r<N; r++){
