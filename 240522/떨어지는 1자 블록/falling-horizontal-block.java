@@ -40,9 +40,10 @@ public class Main {
         for(int c=K; c<K+M; c++){
             row = Math.min(row, height[c]);
         }
+        if(row > 0) row--;
 
         for(int c=K; c<K+M; c++){
-            arr[row - 1][c] = 1;
+            arr[row][c] = 1;
         }
 
         for(int r=0; r<N; r++){
