@@ -8,6 +8,7 @@ public class Main {
 
     static int N, M, K;
     static int[][] arr;
+    static int row;
 
     public static void main(String[] args) throws IOException {
         st = new StringTokenizer(br.readLine());
@@ -34,11 +35,13 @@ public class Main {
             }
 
             if(!canFill){
-                for(int c=K; c<K+M; c++){
-                    arr[r-1][c] = 1;
-                }
+                row = r - 1;
                 break;
             }
+        }
+
+        for(int c=K; c<K+M; c++){
+            arr[row][c] = 1;
         }
 
         for(int r=0; r<N; r++){
