@@ -6,11 +6,8 @@ public class Main {
     static StringBuilder sb = new StringBuilder();
     static StringTokenizer st;
 
-    static final int BLANK = 0;
-
     static int N, M, K;
     static int[][] arr;
-    static int[] height;
 
     public static void main(String[] args) throws IOException {
         st = new StringTokenizer(br.readLine());
@@ -18,7 +15,6 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken()) - 1;
         arr = new int[N][N];
-        height = new int[N];
 
         for(int r=0; r<N; r++){
             st = new StringTokenizer(br.readLine());
@@ -27,23 +23,22 @@ public class Main {
             }
         }
 
-        for(int c=0; c<N; c++){
-            for(int r=0; r<N; r++){
-                if(arr[r][c] == BLANK) continue;
-                
-                height[c] = r;
+        for(int r=1; r<N; r++){
+            boolean canFill = true;
+
+            for(int c=K; c<K+M; c++){
+                if(arr[r][c] == 1){
+                    canFill = false;
+                    break;
+                }
+            }
+
+            if(!canFill){
+                for(int c=K; c<K+M; c++){
+                    arr[r-1][c] = 1;
+                }
                 break;
             }
-        }
-
-        int row = N - 1;
-        for(int c=K; c<K+M; c++){
-            row = Math.min(row, height[c]);
-        }
-        if(row > 0) row--;
-
-        for(int c=K; c<K+M; c++){
-            arr[row][c] = 1;
         }
 
         for(int r=0; r<N; r++){
