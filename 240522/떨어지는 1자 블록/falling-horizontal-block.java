@@ -16,6 +16,7 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken()) - 1;
         arr = new int[N][N];
+        row = -1;
 
         for(int r=0; r<N; r++){
             st = new StringTokenizer(br.readLine());
@@ -24,7 +25,7 @@ public class Main {
             }
         }
 
-        for(int r=1; r<N; r++){
+        for(int r=0; r<N; r++){
             boolean canFill = true;
 
             for(int c=K; c<K+M; c++){
@@ -34,10 +35,8 @@ public class Main {
                 }
             }
 
-            if(!canFill){
-                row = r - 1;
-                break;
-            }
+            if(canFill) row++;
+            else break;
         }
 
         for(int c=K; c<K+M; c++){
