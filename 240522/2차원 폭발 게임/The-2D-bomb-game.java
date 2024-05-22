@@ -34,7 +34,9 @@ public class Main {
             gravity();
         }
 
-        if(bomb()) gravity();
+        while(bomb()){
+            gravity();
+        }
 
         for(int r=0; r<N; r++){
             for(int c=0; c<N; c++){
