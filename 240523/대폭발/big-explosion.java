@@ -28,11 +28,12 @@ public class Main {
 
         for(int m=1; m<=M; m++){
             int size = list.size();
+            int dist = (int)Math.pow(2, m-1);
             for(int i=0; i<size; i++){
                 Info bomb = list.get(i);
                 for(int d=0; d<dr.length; d++){
-                    int nr = bomb.r + dr[d] * m;
-                    int nc = bomb.c + dc[d] * m;
+                    int nr = bomb.r + dr[d] * dist;
+                    int nc = bomb.c + dc[d] * dist;
 
                     if(isIn(nr, nc) && !arr[nr][nc]){
                         arr[nr][nc] = true;
