@@ -13,7 +13,7 @@ public class Main {
     static int N, M;
     static Info[] marble;
     static boolean[] isBroken;
-    static List<Integer>[][] arr;
+    static int[][] arr;
 
     public static void main(String[] args) throws IOException {
         T = Integer.parseInt(br.readLine());
@@ -22,16 +22,10 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             N = Integer.parseInt(st.nextToken());
             M = Integer.parseInt(st.nextToken());
-            marble = new Info[M];
-            isBroken = new boolean[M];
-            arr = new List[N][N];
-            for(int r=0; r<N; r++){
-                for(int c=0; c<N; c++){
-                    arr[r][c] = new ArrayList<>();
-                }
-            }
+            marble = new Info[M+1];
+            isBroken = new boolean[M+1];
 
-            for(int m=0; m<M; m++){
+            for(int m=1; m<=M; m++){
                 st = new StringTokenizer(br.readLine());
                 int r = Integer.parseInt(st.nextToken()) - 1;
                 int c = Integer.parseInt(st.nextToken()) - 1;
@@ -40,8 +34,10 @@ public class Main {
             }
 
             for(int n=0; n<2*N; n++){
+                arr = new int[N][N];
+
                 // 1. 깨지지 않은 구슬 움직이기
-                for(int m=0; m<M; m++){
+                for(int m=1; m<=M; m++){
                     if(isBroken[m]) continue;
                     
                     Info curr = marble[m];
@@ -55,25 +51,21 @@ public class Main {
                         curr.d = (curr.d - 2 + 4) % 4;
                     }
 
-                    arr[curr.r][curr.c].add(m);
-                }
-
-                // 2. 서로 겹친 구슬 처리하기
-                for(int r=0; r<N; r++){
-                    for(int c=0; c<N; c++){
-                        if(arr[r][c].size() > 1){
-                            for(int idx : arr[r][c]){
-                                isBroken[idx] = true;
-                            }
+                    // 2. 겹치는 지 확인
+                    int num = arr[curr.r][curr.c];
+                    if(num == 0) arr[curr.r][curr.c] = m;
+                    else{
+                        isBroken[m] = true;
+                        if(num > 0){
+                            isBroken[num] = true;
+                            arr[curr.r][curr.c] = -1;
                         }
-
-                        arr[r][c] = new ArrayList<>();
                     }
                 }
             }
 
             int count = 0;
-            for(int m=0; m<M; m++){
+            for(int m=1; m<=M; m++){
                 if(!isBroken[m]) count++;
             }
 
