@@ -67,7 +67,7 @@ public class Main {
                             }
                         }
 
-                        arr[r][c].clear();
+                        arr[r][c] = new ArrayList<>();
                     }
                 }
             }
