@@ -70,10 +70,12 @@ public class Main {
             for(int r=0; r<N; r++){
                 for(int c=0; c<N; c++){
                     int k=K;
-                    while(!arr[r][c].isEmpty() && k > 0){
+                    while(!arr[r][c].isEmpty() && k>0){
                         marbles.add(arr[r][c].poll());
                         k--;
                     }
+
+                    while(!arr[r][c].isEmpty()) arr[r][c].poll();
                 }
             }
         }
