@@ -49,12 +49,14 @@ public class Main {
             for(int d=0; d<dr.length; d++){
                 int nr = r + dr[d];
                 int nc = c + dc[d];
-                if(isIn(nr, nc) && maxArr[nr][nc] > 0 && maxArr[nr][nc] > max){
+                if(isIn(nr, nc) && maxArr[nr][nc] > max){
                     max = maxArr[nr][nc];
                     mr = nr;
                     mc = nc;
                 }
             }
+
+            if(max == 0) continue;
 
             while(true){
                 int top = arr[r][c].pop();
