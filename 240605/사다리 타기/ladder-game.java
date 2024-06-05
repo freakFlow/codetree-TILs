@@ -32,7 +32,7 @@ public class Main {
             lines[m].make();
         }
 
-        result = simulate();
+        result = simulate();       
 
         for(int m=0; m<M; m++){
             selectedLine = new int[m];
@@ -76,7 +76,7 @@ public class Main {
         for(int c=1; c<=N; c++){
             int start = c;
 
-            for(int r=0; r<H; r++){
+            for(int r=0; r<=H; r++){
                 if(sadari[r][start] == 0) continue;
 
                 start = sadari[r][start];
