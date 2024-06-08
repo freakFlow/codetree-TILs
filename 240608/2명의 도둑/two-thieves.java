@@ -59,7 +59,6 @@ public class Main {
         for(int i=M; i>0; i--){
             temp = new int[i];
             combination(0, 0, r, c);
-            if(value > 0) break;
         }
 
         return value;
