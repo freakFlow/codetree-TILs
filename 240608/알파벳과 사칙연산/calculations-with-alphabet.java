@@ -15,6 +15,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         str = br.readLine().toCharArray();
         toNum = new int[SIZE];
+        ans = Integer.MIN_VALUE;
 
         combination(0);
 
