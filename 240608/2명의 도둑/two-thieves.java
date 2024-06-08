@@ -8,6 +8,7 @@ public class Main {
 
     static int N, M, C;
     static int[][] arr;
+    static int[][] values;
     static int r1, c1, r2, c2;
     static int ans;
 
@@ -17,6 +18,7 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
         C = Integer.parseInt(st.nextToken());
         arr = new int[N][N];
+        values = new int[N][N];
 
         for(int r=0; r<N; r++){
             st = new StringTokenizer(br.readLine());
@@ -25,13 +27,19 @@ public class Main {
             }
         }
 
+        for(int r=0; r<N; r++){
+            for(int c=0; c<=N-M; c++){
+                values[r][c] = getValue(r, c);
+            }
+        }
+
         for(r1=0; r1<N; r1++){
-            for(c1=0; c1<N-M; c1++){
+            for(c1=0; c1<=N-M; c1++){
                 for(r2=r1; r2<N; r2++){
-                    for(c2=0; c2<N-M; c2++){
+                    for(c2=0; c2<=N-M; c2++){
                         if(isOverlapped()) continue;
 
-                        ans = Math.max(ans, getValue(r1, c1) + getValue(r2, c2));
+                        ans = Math.max(ans, values[r1][c1] + values[r2][c2]);
                     }
                 }
             }
