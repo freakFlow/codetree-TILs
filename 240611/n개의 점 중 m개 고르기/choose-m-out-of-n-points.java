@@ -39,7 +39,7 @@ public class Main {
 
     static void selectM(int idx, int start){
         if(idx == M){
-            distance = Integer.MAX_VALUE;
+            distance = 0;
             select2(0, 0);
             ans = Math.min(ans, distance);
             return;
@@ -53,7 +53,7 @@ public class Main {
 
     static void select2(int idx, int start){
         if(idx == 2){
-            distance = Math.min(distance, getDistance());
+            distance = Math.max(distance, getDistance());
             return;
         }
 
