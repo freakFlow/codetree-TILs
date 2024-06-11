@@ -21,21 +21,21 @@ public class Main {
             num[n] = Integer.parseInt(st.nextToken());
         }
 
-        simulate(0, 0);
+        simulate(0, 0, 0);
 
         sb.append(ans);
 
         System.out.print(sb);
     }
 
-    static void simulate(int idx, int result){
+    static void simulate(int idx, int start, int result){
         if(idx == M){
             ans = Math.max(ans, result);
             return;
         }
 
-        for(int i=0; i<N; i++){
-            simulate(idx + 1, result ^ num[i]);
+        for(int i=start; i<N; i++){
+            simulate(idx + 1, i + 1, result ^ num[i]);
         }
     }
 }
