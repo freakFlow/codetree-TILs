@@ -28,24 +28,24 @@ public class Main {
         row = new boolean[N];
         col = new boolean[N];
 
-        findIt(0, INF);
+        findIt(0, 0, INF);
 
         sb.append(ans);
 
         System.out.print(sb);
     }
 
-    static void findIt(int idx, int min){
+    static void findIt(int idx, int start, int min){
         if(idx == N){
             ans = Math.max(ans, min);
             return;
         }
 
-        for(int i=0; i<N*N; i++){
+        for(int i=start; i<N*N; i++){
             if(row[i / N] || col[i % N] || arr[i] < ans) continue;
             row[i / N] = true;
             col[i % N] = true;
-            findIt(idx + 1, Math.min(min, arr[i]));
+            findIt(idx + 1, i + 1, Math.min(min, arr[i]));
             row[i / N] = false;
             col[i % N] = false;
         }
