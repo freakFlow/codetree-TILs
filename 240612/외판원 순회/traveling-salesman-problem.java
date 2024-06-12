@@ -45,6 +45,7 @@ public class Main {
                 cost += arr[from][to];
                 from = to;
             }
+            if(arr[from][0] == 0) return;
             ans = Math.min(ans, cost + arr[from][0]);
             return;
         }
