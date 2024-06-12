@@ -41,6 +41,7 @@ public class Main {
             int cost = 0;
             for(int i=0; i<N-1; i++){
                 int to = sequence[i];
+                if(arr[from][to] == 0) return;
                 cost += arr[from][to];
                 from = to;
             }
