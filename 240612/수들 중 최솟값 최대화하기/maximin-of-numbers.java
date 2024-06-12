@@ -42,7 +42,7 @@ public class Main {
         }
 
         for(int i=0; i<N*N; i++){
-            if(row[i / N] || col[i % N]) continue;
+            if(row[i / N] || col[i % N] || arr[i] < ans) continue;
             row[i / N] = true;
             col[i % N] = true;
             findIt(idx + 1, Math.min(min, arr[i]));
