@@ -6,6 +6,9 @@ int main() {
 
     cin >> a >> b;
 
+    cout << fixed;
+    cout.precision(1);
+
     cout << a + b << " " << (a + b) / 2.0;
 
     return 0;
