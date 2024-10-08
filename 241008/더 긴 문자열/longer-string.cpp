@@ -9,8 +9,10 @@ int main() {
 
     if(str1.length() > str2.length()){
         cout << str1 << ' ' << str1.length();
-    }else{
+    }else if(str1.length() < str2.length()){
         cout << str2 << ' ' << str2.length();
+    }else{
+        cout << "same";
     }
 
     return 0;
