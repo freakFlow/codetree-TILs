@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     int n, m;
-    int arr[10][10];
+    int arr[10][10] = {};
 
     cin >> n >> m;
     for(int i=0; i<m; i++){
